@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  front:
+    container_name: front-container
+    restart: unless-stopped
+    image: front-image
+    build:
+      context: front
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+
+  server:
+    container_name: server-container
+    restart: unless-stopped
+    image: server-image
+    build:
+      context: server
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
